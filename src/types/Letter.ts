@@ -13,13 +13,6 @@ export interface Letter {
   color: string;
 }
 
-export interface Boundary {
-  x: number;
-  y: number;
-  width: number;
-  height: number;
-}
-
 export interface CursorPosition {
   x: number;
   y: number;

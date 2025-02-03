@@ -54,7 +54,7 @@ class LetterAnimation {
 
     // Update physics for each letter
     this.letters.forEach(letter => {
-      updatePhysics(letter, [], deltaTime / 1000, this.cursor);
+      updatePhysics(letter, deltaTime / 1000, this.cursor);
     });
 
     // Remove letters that are off screen

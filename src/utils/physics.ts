@@ -1,4 +1,4 @@
-import { Letter, Boundary, CursorPosition } from '../types/Letter';
+import { Letter, CursorPosition } from '../types/Letter';
 
 const GRAVITY = 20;
 const DAMPING = 0.85;
@@ -8,7 +8,6 @@ const REPULSION_FORCE = 1000; // Strength of repulsion
 
 export function updatePhysics(
   letter: Letter, 
-  boundaries: Boundary[], 
   deltaTime: number,
   cursor: CursorPosition
 ): void {
@@ -30,7 +29,7 @@ export function updatePhysics(
   letter.rotation += letter.angularVelocity * deltaTime * 1.5;
   
   // Handle boundary collisions
-  handleBoundaryCollisions(letter, boundaries);
+  handleBoundaryCollisions(letter);
 }
 
 function applyCursorRepulsion(letter: Letter, cursor: CursorPosition): void {
@@ -57,7 +56,7 @@ function applyCursorRepulsion(letter: Letter, cursor: CursorPosition): void {
   }
 }
 
-function handleBoundaryCollisions(letter: Letter, boundaries: Boundary[]): void {
+function handleBoundaryCollisions(letter: Letter): void {
   // Ground collision
   if (letter.y + letter.height > window.innerHeight) {
     letter.y = window.innerHeight - letter.height;
